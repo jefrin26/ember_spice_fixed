@@ -9,16 +9,18 @@ import { initMenuFilter } from "./features/menu-filter.js";
 import { initCart } from "./features/cart.js";
 import { initOffer } from "./features/offer.js";
 import { initContactForm } from "./features/contact-form.js";
+import { initDynamicIsland } from "./features/dynamic-island.js";
 
 async function initApp() {
-  // 1. Load HTML components into the shell
+  // 1. Load HTML components into the shell (if page uses placeholders)
   await loadComponents();
 
-  // 2. Initialize feature logic (requires DOM from components)
+  // 2. Initialize feature logic — safe to call on any page (each checks DOM)
   initMenuFilter();
   initCart();
   initOffer();
   initContactForm();
+  initDynamicIsland();
 }
 
 // Start when DOM is ready

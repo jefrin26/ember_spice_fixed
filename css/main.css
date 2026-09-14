@@ -24,5 +24,8 @@
 @import url("./sections/contact.css");
 @import url("./sections/footer.css");
 
+/* Dynamic Island — floating bottom nav */
+@import url("./components/dynamic-island.css");
+
 /* Responsive — must be last */
 @import url("./responsive.css");

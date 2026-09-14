@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu — Ember & Spice</title>
+    <meta name="description" content="Find your favourite: pizzas, burgers, biryani and desserts at Ember & Spice. Filter and search our menu." />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+      <nav class="navbar" aria-label="Primary">
+        <a href="index.html" class="logo">EMBER<span>&</span>SPICE</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" class="is-active" aria-current="page">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="menu.html" class="nav-cart" aria-label="Cart — items added appear here">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9H7z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.8"/><circle cx="18" cy="20" r="1.8"/></svg>
+            <span id="navCartBadge" class="nav-cart-badge" hidden>0</span>
+          </a>
+          <a href="#foodGrid" class="nav-order">Order Now</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">›</span> <span>Menu</span></nav>
+        <h1>Find your <span>favourite.</span></h1>
+        <p>From crispy pizzas to delicious desserts. Search, filter by category, and add to cart — your count syncs to the island.</p>
+      </div>
+
+      <section class="food section" style="padding-top: 40px;">
+        <!-- SEARCH & CATEGORIES -->
+        <div class="menu-controls">
+          <label for="searchBox" class="sr-only" style="position:absolute;left:-9999px;">Search menu</label>
+          <input type="text" id="searchBox" placeholder="Search your favourite food... e.g. 'Cheese' or 'Biryani'" autocomplete="off" />
+          <div class="categories" role="tablist" aria-label="Food categories">
+            <button class="category active" data-category="all" role="tab" aria-selected="true">All</button>
+            <button class="category" data-category="pizza" role="tab" aria-selected="false">Pizza</button>
+            <button class="category" data-category="burger" role="tab" aria-selected="false">Burger</button>
+            <button class="category" data-category="biryani" role="tab" aria-selected="false">Biryani</button>
+            <button class="category" data-category="dessert" role="tab" aria-selected="false">Desserts</button>
+          </div>
+          <p style="text-align: center; color: #777; font-size: 12px; margin-top: 12px;">Tip: share filtered views — URL updates automatically.</p>
+        </div>
+
+        <!-- FOOD CARDS -->
+        <div class="food-grid" id="foodGrid">
+          <!-- Pizza -->
+          <div class="food-card" data-category="pizza">
+            <div class="food-image pizza" aria-hidden="true" style="font-size: 44px;">🍕</div>
+            <div class="food-info">
+              <p class="food-category">PIZZA</p>
+              <h3>Firecracker Pizza</h3>
+              <p>Spicy chicken, cheese and roasted peppers.</p>
+              <div class="food-bottom">
+                <strong>₹249</strong>
+                <button class="add-btn" aria-label="Add Firecracker Pizza">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card" data-category="pizza">
+            <div class="food-image pizza" aria-hidden="true" style="font-size: 44px;">🧀</div>
+            <div class="food-info">
+              <p class="food-category">PIZZA</p>
+              <h3>Cheese Burst</h3>
+              <p>Creamy cheese, herbs and mozzarella.</p>
+              <div class="food-bottom">
+                <strong>₹299</strong>
+                <button class="add-btn" aria-label="Add Cheese Burst">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Burger -->
+          <div class="food-card" data-category="burger">
+            <div class="food-image burger" aria-hidden="true" style="font-size: 44px;">🍔</div>
+            <div class="food-info">
+              <p class="food-category">BURGER</p>
+              <h3>Smoky Beast</h3>
+              <p>Grilled patty with smoky sauce and cheese.</p>
+              <div class="food-bottom">
+                <strong>₹199</strong>
+                <button class="add-btn" aria-label="Add Smoky Beast">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card" data-category="burger">
+            <div class="food-image burger" aria-hidden="true" style="font-size: 44px;">🍗</div>
+            <div class="food-info">
+              <p class="food-category">BURGER</p>
+              <h3>Crispy Crunch</h3>
+              <p>Crispy chicken, lettuce and spicy mayo.</p>
+              <div class="food-bottom">
+                <strong>₹229</strong>
+                <button class="add-btn" aria-label="Add Crispy Crunch">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Biryani -->
+          <div class="food-card" data-category="biryani">
+            <div class="food-image biryani" aria-hidden="true" style="font-size: 44px;">🍛</div>
+            <div class="food-info">
+              <p class="food-category">BIRYANI</p>
+              <h3>Royal Chicken Biryani</h3>
+              <p>Aromatic basmati rice with tender chicken.</p>
+              <div class="food-bottom">
+                <strong>₹279</strong>
+                <button class="add-btn" aria-label="Add Royal Chicken Biryani">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card" data-category="biryani">
+            <div class="food-image biryani" aria-hidden="true" style="font-size: 44px;">🌿</div>
+            <div class="food-info">
+              <p class="food-category">BIRYANI</p>
+              <h3>Spice Garden Biryani</h3>
+              <p>Fragrant rice cooked with herbs and spices.</p>
+              <div class="food-bottom">
+                <strong>₹249</strong>
+                <button class="add-btn" aria-label="Add Spice Garden Biryani">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dessert -->
+          <div class="food-card" data-category="dessert">
+            <div class="food-image dessert" aria-hidden="true" style="font-size: 44px;">🍫</div>
+            <div class="food-info">
+              <p class="food-category">DESSERT</p>
+              <h3>Chocolate Dream</h3>
+              <p>Rich chocolate cake with creamy frosting.</p>
+              <div class="food-bottom">
+                <strong>₹149</strong>
+                <button class="add-btn" aria-label="Add Chocolate Dream">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="food-card" data-category="dessert">
+            <div class="food-image dessert" aria-hidden="true" style="font-size: 44px;">🍨</div>
+            <div class="food-info">
+              <p class="food-category">DESSERT</p>
+              <h3>Berry Sundae</h3>
+              <p>Vanilla ice cream with berries and syrup.</p>
+              <div class="food-bottom">
+                <strong>₹129</strong>
+                <button class="add-btn" aria-label="Add Berry Sundae">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="offers.html" class="second-btn">See today's offer →</a>
+          <a href="contact.html" class="second-btn">Need help ordering?</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="logo">EMBER<span>&</span>SPICE</div>
+      <p>Crafted with passion. Served with fire.</p>
+      <p style="margin-top: 12px; font-size: 12px; color: #666;">Showing 8 dishes • Use search or categories to narrow • Press 1-5 to jump pages</p>
+      <p class="copyright">© 2026 Ember & Spice</p>
+    </footer>
+
+    <!-- Dynamic Island -->
+    <nav id="dynamicIsland" class="dynamic-island" aria-label="Quick navigation">
+      <div class="island-track" role="menubar">
+        <a href="index.html" data-page="home" class="island-link" role="menuitem" aria-label="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z"/></svg>
+          <span class="island-label">Home</span>
+        </a>
+        <a href="menu.html" data-page="menu" class="island-link is-active" role="menuitem" aria-current="page" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="island-label">Menu</span>
+          <span id="islandCartBadge" class="island-badge" hidden>0</span>
+        </a>
+        <a href="offers.html" data-page="offers" class="island-link" role="menuitem" aria-label="Offers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/></svg>
+          <span class="island-label">Offers</span>
+        </a>
+        <a href="about.html" data-page="about" class="island-link" role="menuitem" aria-label="About">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span class="island-label">About</span>
+        </a>
+        <a href="contact.html" data-page="contact" class="island-link" role="menuitem" aria-label="Contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 12 13l9-6"/></svg>
+          <span class="island-label">Contact</span>
+        </a>
+      </div>
+    </nav>
+
+    <div id="toastStack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

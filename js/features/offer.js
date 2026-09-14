@@ -1,23 +1,36 @@
 /**
  * Feature — Offers
  * Location: js/features/offer.js
- * Handles the "CLAIM OFFER" action (previously inline onclick).
+ * Handles the "CLAIM OFFER" action with friendly toast.
  */
 
-export function initOffer() {
-  const offerButton = document.querySelector(".offer-btn");
+import { showToast } from "../utils/toast.js";
 
-  if (!offerButton) {
+export function initOffer() {
+  const offerButtons = document.querySelectorAll(".offer-btn");
+
+  if (!offerButtons.length) {
     return;
   }
 
-  offerButton.addEventListener("click", function () {
-    showOffer();
+  offerButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showOffer();
+    });
   });
 }
 
 export function showOffer() {
-  alert("Congratulations!\n\n" + "Your 20% OFF offer is ready!");
+  // Store claimed state
+  try {
+    localStorage.setItem("es_offer_claimed", String(Date.now()));
+  } catch {}
+  showToast("🎉 20% OFF applied — add 2 mains to cart & save!", {
+    actionLabel: "Order now",
+    onAction: function () {
+      window.location.href = "menu.html";
+    },
+  });
 }
 
 // Expose globally for any legacy inline handlers (optional)

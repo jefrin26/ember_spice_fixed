@@ -1,0 +1,297 @@
+/* ======================================================
+   Component — Dynamic Island Navbar (Bottom Pill)
+   Location: css/components/dynamic-island.css
+   Inspired by iOS Dynamic Island: floating pill,
+   morphs, active expansion, spring motion, user-friendly
+   quick navigation at thumb reach.
+   ====================================================== */
+
+.dynamic-island {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  transform: translateX(-50%) translateY(0);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.dynamic-island.is-hidden {
+  transform: translateX(-50%) translateY(calc(100% + 32px));
+  opacity: 0;
+}
+
+.island-track {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(22, 20, 18, 0.88);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(255, 116, 56, 0.08);
+  border-radius: 999px;
+  max-width: min(560px, calc(100vw - 24px));
+}
+
+.island-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  color: var(--text-nav);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition:
+    background 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.25s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    padding 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.island-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke-width: 2;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.island-link .island-label {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    max-width 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Active state — pill expands like Dynamic Island */
+.island-link.is-active {
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 18px;
+  box-shadow: 0 4px 14px rgba(255, 116, 56, 0.35);
+}
+
+.island-link.is-active .island-label {
+  max-width: 80px;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.island-link.is-active svg {
+  transform: scale(1.05);
+}
+
+/* Hover / focus for inactive */
+.island-link:not(.is-active):hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.island-link:not(.is-active):active {
+  transform: scale(0.96);
+}
+
+.island-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Cart badge — floats like notification dot */
+.island-badge {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--primary-deep);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.island-badge.is-visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.island-link.is-active .island-badge {
+  background: #11100e;
+  color: #fff;
+  top: 6px;
+  right: 10px;
+}
+
+/* Divider pill */
+.island-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+/* Order CTA inside island (optional highlight) */
+.island-cta {
+  background: var(--primary);
+  color: #fff !important;
+  padding: 11px 20px !important;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(255, 116, 56, 0.3);
+}
+
+.island-cta .island-label {
+  max-width: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Toast container — friendly feedback instead of alert() */
+.toast-stack {
+  position: fixed;
+  left: 50%;
+  bottom: 92px;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: rgba(24, 22, 19, 0.96);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 116, 56, 0.25);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  animation: toastIn 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    toastOut 0.3s ease 2.6s forwards;
+  white-space: nowrap;
+}
+
+.toast-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(255, 116, 56, 0.6);
+  flex-shrink: 0;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+}
+
+/* Page top offset for island clearance */
+body.has-dynamic-island {
+  padding-bottom: 92px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .dynamic-island,
+  .island-link,
+  .island-link .island-label,
+  .toast {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive tuning */
+@media (max-width: 640px) {
+  .island-track {
+    padding: 5px;
+    gap: 2px;
+  }
+
+  .island-link {
+    padding: 10px 12px;
+  }
+
+  .island-link.is-active {
+    padding: 10px 14px;
+  }
+
+  /* On very small screens collapse labels except active to save space */
+  .island-link:not(.is-active) .island-label {
+    display: none;
+  }
+
+  /* Still show all icons */
+}
+
+@media (max-width: 380px) {
+  .island-track {
+    gap: 1px;
+  }
+  .island-link {
+    padding: 10px 10px;
+  }
+}
+
+/* Large screens: subtle scale up */
+@media (min-width: 900px) {
+  .dynamic-island {
+    bottom: 24px;
+  }
+  .island-track {
+    padding: 7px;
+  }
+}

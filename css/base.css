@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 86px;
 }
 
 body {
@@ -45,7 +46,40 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* Smooth page transitions */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: pageFadeIn 0.45s ease;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip link for a11y */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  padding: 10px 16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  z-index: 2000;
+}
+.skip-link:focus { top: 12px; }
 
 a {
   text-decoration: none;

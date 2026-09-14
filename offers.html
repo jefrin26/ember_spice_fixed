@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offers — Ember & Spice</title>
+    <meta name="description" content="Limited time offers at Ember & Spice — share more, save more. Get 20% OFF when you order any two mains." />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+      <nav class="navbar" aria-label="Primary">
+        <a href="index.html" class="logo">EMBER<span>&</span>SPICE</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="offers.html" class="is-active" aria-current="page">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="menu.html" class="nav-cart" aria-label="View cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9H7z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.8"/><circle cx="18" cy="20" r="1.8"/></svg><span id="navCartBadge" class="nav-cart-badge" hidden>0</span></a>
+          <a href="menu.html" class="nav-order">Order Now</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">›</span> <span>Offers</span></nav>
+        <h1>Save when you <span>share.</span></h1>
+        <p>Real savings — no coupons, no hassle. Tap Claim and your discount is ready at checkout.</p>
+      </div>
+
+      <section class="offers section">
+        <div class="offer-content">
+          <p class="section-label">LIMITED TIME — ENDS SUNDAY</p>
+          <h2>The more you <span>share,</span> the more you save.</h2>
+          <p>Get <strong style="color: #fff;">20% OFF</strong> when you order any two main dishes. Perfect for dinner with friends or a family feast.</p>
+          <ul style="margin: 16px 0 22px; color: #aaa; padding-left: 18px; font-size: 14px;">
+            <li>Applies to pizza, burger & biryani</li>
+            <li>Auto-applied at checkout after Claim</li>
+            <li>Valid for dine-in, takeaway & delivery</li>
+          </ul>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="offer-btn">CLAIM OFFER</button>
+            <a href="menu.html" class="second-btn">Choose dishes →</a>
+          </div>
+        </div>
+        <div class="offer-number" aria-hidden="true">
+          <strong>20%</strong>
+          <span>OFF</span>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-heading" style="margin-bottom: 28px;">
+          <p class="section-label">MORE WAYS TO SAVE</p>
+          <h2>Don't <span>miss out</span></h2>
+        </div>
+        <div class="featured-grid">
+          <div class="food-card" style="padding: 22px; background: linear-gradient(135deg, #2a1a12, #1a1815);">
+            <p class="section-label" style="margin-bottom: 8px; font-size: 11px;">WEEKDAY LUNCH</p>
+            <h3 style="margin-bottom: 6px;">Free dessert</h3>
+            <p style="color: var(--text-dim); font-size: 13px;">Order any biryani before 3pm, get Berry Sundae on us.</p>
+            <a href="menu.html?category=biryani" style="display: inline-block; margin-top: 14px; color: var(--primary); font-weight: 700; font-size: 13px;">Order biryani →</a>
+          </div>
+          <div class="food-card" style="padding: 22px; background: linear-gradient(135deg, #1e2329, #1a1815);">
+            <p class="section-label" style="margin-bottom: 8px; font-size: 11px;">STUDENT DEAL</p>
+            <h3 style="margin-bottom: 6px;">Burger + drink ₹229</h3>
+            <p style="color: var(--text-dim); font-size: 13px;">Show student ID. Valid Mon–Thu after 5pm.</p>
+            <a href="menu.html?category=burger" style="display: inline-block; margin-top: 14px; color: var(--primary); font-weight: 700; font-size: 13px;">See burgers →</a>
+          </div>
+          <div class="food-card" style="padding: 22px; background: linear-gradient(135deg, #2b1a28, #1a1815);">
+            <p class="section-label" style="margin-bottom: 8px; font-size: 11px;">FIRST ORDER</p>
+            <h3 style="margin-bottom: 6px;">₹100 off</h3>
+            <p style="color: var(--text-dim); font-size: 13px;">New to Ember & Spice? Message us and we’ll send a code.</p>
+            <a href="contact.html" style="display: inline-block; margin-top: 14px; color: var(--primary); font-weight: 700; font-size: 13px;">Get code →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="text-align: center; padding-top: 50px; padding-bottom: 50px;">
+        <p style="color: #777; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">Questions?</p>
+        <h3 style="font-size: 22px; margin-bottom: 10px;">How the discount works</h3>
+        <p style="color: var(--text-secondary); max-width: 560px; margin: 0 auto 18px; font-size: 14px;">Add any two mains to your cart, tap <strong style="color:#fff;">Claim Offer</strong> on this page, and the 20% is applied. No code needed on delivery apps either — we match it.</p>
+        <a href="contact.html" class="second-btn" style="font-size: 13px;">Ask us anything</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="logo">EMBER<span>&</span>SPICE</div>
+      <p>Crafted with passion. Served with fire.</p>
+      <p class="copyright">© 2026 Ember & Spice</p>
+    </footer>
+
+    <nav id="dynamicIsland" class="dynamic-island" aria-label="Quick navigation">
+      <div class="island-track" role="menubar">
+        <a href="index.html" data-page="home" class="island-link" role="menuitem" aria-label="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z"/></svg>
+          <span class="island-label">Home</span>
+        </a>
+        <a href="menu.html" data-page="menu" class="island-link" role="menuitem" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="island-label">Menu</span>
+          <span id="islandCartBadge" class="island-badge" hidden>0</span>
+        </a>
+        <a href="offers.html" data-page="offers" class="island-link is-active" role="menuitem" aria-current="page" aria-label="Offers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/></svg>
+          <span class="island-label">Offers</span>
+        </a>
+        <a href="about.html" data-page="about" class="island-link" role="menuitem" aria-label="About">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span class="island-label">About</span>
+        </a>
+        <a href="contact.html" data-page="contact" class="island-link" role="menuitem" aria-label="Contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 12 13l9-6"/></svg>
+          <span class="island-label">Contact</span>
+        </a>
+      </div>
+    </nav>
+
+    <div id="toastStack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
