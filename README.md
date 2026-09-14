@@ -265,7 +265,9 @@ flowchart TD
         M --> SF[sections/footer.css]
         M --> DI[components/dynamic-island.css]
         M --> R[responsive.css LAST]
-        BA -. defines vars .-> CB & CC & SN & SH & SM
+        BA -.-> CB
+        BA -.-> CC
+        BA -.-> SN
     end
 
     subgraph JS["JS — js/main.js:14 initApp()"]
@@ -281,7 +283,7 @@ flowchart TD
         OF --> TO
         CF2 --> TO
         DIJ --> CS
-        CS -. es:cart:update .-> DIJ
+        CS -.-> DIJ
     end
 
     subgraph COMP["components/*.html (Injected)"]
@@ -293,7 +295,9 @@ flowchart TD
         CO[offers.html]
         CA2[about.html]
         CC2[contact.html]
-        CL -. outerHTML replace .-> CN & CF0 & CD
+        CL -.-> CN
+        CL -.-> CF0
+        CL -.-> CD
     end
 
     A --> M
@@ -317,27 +321,27 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    JM[js/main.js:7]
+    JM["js/main.js:7"]
 
-    JM --> CL[component-loader.js]
-    JM --> MF[menu-filter.js]
-    JM --> CA[cart.js]
-    JM --> OF[offer.js]
-    JM --> CF2[contact-form.js]
-    JM --> DIJ[dynamic-island.js]
+    JM --> CL["component-loader.js"]
+    JM --> MF["menu-filter.js"]
+    JM --> CA["cart.js"]
+    JM --> OF["offer.js"]
+    JM --> CF2["contact-form.js"]
+    JM --> DIJ["dynamic-island.js"]
 
-    CA --> CS[cart-store.js<br/>getCart saveCart addToCart]
-    CA --> TO[toast.js<br/>showToast]
+    CA --> CS["cart-store.js<br/>getCart saveCart addToCart"]
+    CA --> TO["toast.js<br/>showToast"]
     OF --> TO
     CF2 --> TO
     DIJ --> CS
 
-    CS --> LS[(localStorage<br/>es_cart_v1<br/>es_offer_claimed)]
-    TO --> DOM[DOM #toastStack<br/>aria-live polite]
-    DIJ --> BADGE[#navCartBadge + #islandCartBadge<br/>hidden toggle]
+    CS --> LS[("localStorage<br/>es_cart_v1<br/>es_offer_claimed")]
+    TO --> DOM["DOM #toastStack<br/>aria-live polite"]
+    DIJ --> BADGE["#navCartBadge + #islandCartBadge<br/>hidden toggle"]
 
-    MF --> URL[(URL<br/>?category=&?search<br/>history.replaceState)]
-    MF --> GRID[#foodGrid + .food-card[data-category]]
+    MF --> URL[("URL<br/>?category and ?search<br/>history.replaceState")]
+    MF --> GRID["#foodGrid + .food-card[data-category]"]
 
     style JM fill:#ff7438,color:#fff
     style CS fill:#181613,color:#fff,stroke:#ff7438
