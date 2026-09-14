@@ -1,0 +1,103 @@
+/* ======================================================
+   Components — Buttons
+   Location: css/components/buttons.css
+   Shared button styles used across hero, menu & offers
+   ====================================================== */
+
+/* ---------- Primary & Secondary ---------- */
+.main-btn,
+.second-btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  padding: 13px 25px;
+  border-radius: var(--radius-pill);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.main-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.main-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(255, 116, 56, 0.3);
+}
+
+.second-btn {
+  border: 1px solid #555;
+  color: #eee;
+}
+
+.second-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ---------- Navbar Order ---------- */
+.nav-order {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-order:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- Offer CTA ---------- */
+.offer-btn {
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 13px 25px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.offer-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Add-to-Cart Circle ---------- */
+.add-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ---------- Category Pills ---------- */
+.category {
+  padding: 9px 20px;
+  border-radius: 25px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category:hover,
+.category.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}

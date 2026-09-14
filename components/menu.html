@@ -1,0 +1,136 @@
+<!-- Component: Menu | Location: components/menu.html -->
+<section id="food" class="food section">
+  <div class="section-heading">
+    <p class="section-label">OUR MENU</p>
+    <h2>Find your <span>favourite.</span></h2>
+    <p>From crispy pizzas to delicious desserts.</p>
+  </div>
+
+  <!-- SEARCH & CATEGORIES -->
+  <div class="menu-controls">
+    <input
+      type="text"
+      id="searchBox"
+      placeholder="Search your favourite food..."
+    />
+
+    <div class="categories">
+      <button class="category active" data-category="all">All</button>
+      <button class="category" data-category="pizza">Pizza</button>
+      <button class="category" data-category="burger">Burger</button>
+      <button class="category" data-category="biryani">Biryani</button>
+      <button class="category" data-category="dessert">Desserts</button>
+    </div>
+  </div>
+
+  <!-- FOOD CARDS -->
+  <div class="food-grid" id="foodGrid">
+    <!-- Pizza -->
+    <div class="food-card" data-category="pizza">
+      <div class="food-image pizza"></div>
+      <div class="food-info">
+        <p class="food-category">PIZZA</p>
+        <h3>Firecracker Pizza</h3>
+        <p>Spicy chicken, cheese and roasted peppers.</p>
+        <div class="food-bottom">
+          <strong>₹249</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card" data-category="pizza">
+      <div class="food-image pizza"></div>
+      <div class="food-info">
+        <p class="food-category">PIZZA</p>
+        <h3>Cheese Burst</h3>
+        <p>Creamy cheese, herbs and mozzarella.</p>
+        <div class="food-bottom">
+          <strong>₹299</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Burger -->
+    <div class="food-card" data-category="burger">
+      <div class="food-image burger"></div>
+      <div class="food-info">
+        <p class="food-category">BURGER</p>
+        <h3>Smoky Beast</h3>
+        <p>Grilled patty with smoky sauce and cheese.</p>
+        <div class="food-bottom">
+          <strong>₹199</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card" data-category="burger">
+      <div class="food-image burger"></div>
+      <div class="food-info">
+        <p class="food-category">BURGER</p>
+        <h3>Crispy Crunch</h3>
+        <p>Crispy chicken, lettuce and spicy mayo.</p>
+        <div class="food-bottom">
+          <strong>₹229</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Biryani -->
+    <div class="food-card" data-category="biryani">
+      <div class="food-image biryani"></div>
+      <div class="food-info">
+        <p class="food-category">BIRYANI</p>
+        <h3>Royal Chicken Biryani</h3>
+        <p>Aromatic basmati rice with tender chicken.</p>
+        <div class="food-bottom">
+          <strong>₹279</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card" data-category="biryani">
+      <div class="food-image biryani"></div>
+      <div class="food-info">
+        <p class="food-category">BIRYANI</p>
+        <h3>Spice Garden Biryani</h3>
+        <p>Fragrant rice cooked with herbs and spices.</p>
+        <div class="food-bottom">
+          <strong>₹249</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dessert -->
+    <div class="food-card" data-category="dessert">
+      <div class="food-image dessert"></div>
+      <div class="food-info">
+        <p class="food-category">DESSERT</p>
+        <h3>Chocolate Dream</h3>
+        <p>Rich chocolate cake with creamy frosting.</p>
+        <div class="food-bottom">
+          <strong>₹149</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-card" data-category="dessert">
+      <div class="food-image dessert"></div>
+      <div class="food-info">
+        <p class="food-category">DESSERT</p>
+        <h3>Berry Sundae</h3>
+        <p>Vanilla ice cream with berries and syrup.</p>
+        <div class="food-bottom">
+          <strong>₹129</strong>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

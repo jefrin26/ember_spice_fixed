@@ -1,0 +1,81 @@
+/* ======================================================
+   Components — Food Cards
+   Location: css/components/cards.css
+   ====================================================== */
+
+.food-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.food-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.food-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.food-image {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+
+.food-image.pizza {
+  background: linear-gradient(135deg, #542311, #24130c);
+}
+
+.food-image.burger {
+  background: linear-gradient(135deg, #493018, #21170f);
+}
+
+.food-image.biryani {
+  background: linear-gradient(135deg, #403317, #1d180e);
+}
+
+.food-image.dessert {
+  background: linear-gradient(135deg, #432032, #21131b);
+}
+
+.food-info {
+  padding: 20px;
+}
+
+.food-category {
+  color: var(--primary);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.food-info h3 {
+  margin: 5px 0 8px;
+}
+
+.food-info > p:not(.food-category) {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.food-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.food-bottom strong {
+  color: var(--primary);
+  font-size: 20px;
+}

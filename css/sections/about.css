@@ -1,0 +1,48 @@
+/* ======================================================
+   Feature — About
+   Location: css/sections/about.css
+   ====================================================== */
+
+.about {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  background: var(--bg-secondary);
+}
+
+.about-image {
+  min-width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-size: 130px;
+  background: linear-gradient(135deg, #3b1c10, #17130f);
+  border: 1px solid #493126;
+  animation: floatFood 4s ease-in-out infinite;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content > p {
+  color: var(--text-secondary);
+  margin: 25px 0;
+}
+
+.about-points {
+  display: flex;
+  gap: 30px;
+}
+
+.about-points strong {
+  color: var(--primary);
+  font-size: 25px;
+}
+
+.about-points p {
+  font-size: 13px;
+  color: #aaa;
+}

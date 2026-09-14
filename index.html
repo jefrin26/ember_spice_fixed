@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ember & Spice</title>
+
+    <!-- Modular Stylesheets — single entry point -->
+    <!-- See css/main.css for import map | css/sections/* per feature -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <!--
+      Modular Architecture:
+      - HTML partials:  components/*.html
+      - Styles:         css/sections/*.css + css/components/*.css
+      - Logic:          js/features/*.js
+      This file composes all features. Each section below maps 1:1 to a feature folder.
+    -->
+
+    <!-- ================= NAVBAR ================= -->
+    <!-- Feature: Navbar | CSS: css/sections/navbar.css | HTML partial: components/navbar.html -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">EMBER<span>&</span>SPICE</div>
+
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#food">Food</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#food" class="nav-order">Order Now</a>
+      </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <!-- Feature: Hero | CSS: css/sections/hero.css | HTML partial: components/hero.html -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="small-title">WELCOME TO EMBER & SPICE</p>
+
+        <h1>
+          Taste the
+          <span>Extraordinary.</span>
+        </h1>
+
+        <p class="hero-text">
+          Bold flavours, fresh ingredients and unforgettable moments — served hot
+          from our kitchen.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#food" class="main-btn">Explore Menu</a>
+          <a href="#offers" class="second-btn">View Offers</a>
+        </div>
+      </div>
+
+      <div class="hero-food">
+        <div class="food-circle"></div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <!-- Feature: About | CSS: css/sections/about.css | HTML partial: components/about.html -->
+    <section id="about" class="about section">
+      <div class="about-image"></div>
+
+      <div class="about-content">
+        <p class="section-label">OUR STORY</p>
+
+        <h2>
+          More than food.
+          <span>It's an experience.</span>
+        </h2>
+
+        <p>
+          At Ember & Spice, we believe great food brings people together. Our
+          chefs combine traditional recipes with modern flavours to create dishes
+          worth remembering.
+        </p>
+
+        <div class="about-points">
+          <div>
+            <strong>01</strong>
+            <p>Fresh Ingredients</p>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <p>Expert Chefs</p>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <p>Made With Love</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOD MENU ================= -->
+    <!--
+      Feature: Menu
+      CSS:  css/sections/menu.css + css/components/cards.css + css/components/forms.css
+      JS:   js/features/menu-filter.js (search + categories) + js/features/cart.js
+      HTML partial: components/menu.html
+    -->
+    <section id="food" class="food section">
+      <div class="section-heading">
+        <p class="section-label">OUR MENU</p>
+        <h2>Find your <span>favourite.</span></h2>
+        <p>From crispy pizzas to delicious desserts.</p>
+      </div>
+
+      <!-- SEARCH & CATEGORIES -->
+      <div class="menu-controls">
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search your favourite food..."
+        />
+
+        <div class="categories">
+          <button class="category active" data-category="all">All</button>
+          <button class="category" data-category="pizza">Pizza</button>
+          <button class="category" data-category="burger">Burger</button>
+          <button class="category" data-category="biryani">Biryani</button>
+          <button class="category" data-category="dessert">Desserts</button>
+        </div>
+      </div>
+
+      <!-- FOOD CARDS -->
+      <div class="food-grid" id="foodGrid">
+        <!-- Pizza -->
+        <div class="food-card" data-category="pizza">
+          <div class="food-image pizza"></div>
+          <div class="food-info">
+            <p class="food-category">PIZZA</p>
+            <h3>Firecracker Pizza</h3>
+            <p>Spicy chicken, cheese and roasted peppers.</p>
+            <div class="food-bottom">
+              <strong>₹249</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-category="pizza">
+          <div class="food-image pizza"></div>
+          <div class="food-info">
+            <p class="food-category">PIZZA</p>
+            <h3>Cheese Burst</h3>
+            <p>Creamy cheese, herbs and mozzarella.</p>
+            <div class="food-bottom">
+              <strong>₹299</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Burger -->
+        <div class="food-card" data-category="burger">
+          <div class="food-image burger"></div>
+          <div class="food-info">
+            <p class="food-category">BURGER</p>
+            <h3>Smoky Beast</h3>
+            <p>Grilled patty with smoky sauce and cheese.</p>
+            <div class="food-bottom">
+              <strong>₹199</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-category="burger">
+          <div class="food-image burger"></div>
+          <div class="food-info">
+            <p class="food-category">BURGER</p>
+            <h3>Crispy Crunch</h3>
+            <p>Crispy chicken, lettuce and spicy mayo.</p>
+            <div class="food-bottom">
+              <strong>₹229</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Biryani -->
+        <div class="food-card" data-category="biryani">
+          <div class="food-image biryani"></div>
+          <div class="food-info">
+            <p class="food-category">BIRYANI</p>
+            <h3>Royal Chicken Biryani</h3>
+            <p>Aromatic basmati rice with tender chicken.</p>
+            <div class="food-bottom">
+              <strong>₹279</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-category="biryani">
+          <div class="food-image biryani"></div>
+          <div class="food-info">
+            <p class="food-category">BIRYANI</p>
+            <h3>Spice Garden Biryani</h3>
+            <p>Fragrant rice cooked with herbs and spices.</p>
+            <div class="food-bottom">
+              <strong>₹249</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dessert -->
+        <div class="food-card" data-category="dessert">
+          <div class="food-image dessert"></div>
+          <div class="food-info">
+            <p class="food-category">DESSERT</p>
+            <h3>Chocolate Dream</h3>
+            <p>Rich chocolate cake with creamy frosting.</p>
+            <div class="food-bottom">
+              <strong>₹149</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" data-category="dessert">
+          <div class="food-image dessert"></div>
+          <div class="food-info">
+            <p class="food-category">DESSERT</p>
+            <h3>Berry Sundae</h3>
+            <p>Vanilla ice cream with berries and syrup.</p>
+            <div class="food-bottom">
+              <strong>₹129</strong>
+              <button class="add-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SPECIAL OFFER ================= -->
+    <!-- Feature: Offers | CSS: css/sections/offers.css | JS: js/features/offer.js | HTML: components/offers.html -->
+    <section id="offers" class="offers section">
+      <div class="offer-content">
+        <p class="section-label">LIMITED TIME</p>
+        <h2>
+          The more you
+          <span>share,</span>
+          the more you save.
+        </h2>
+        <p>Get 20% OFF when you order any two main dishes.</p>
+        <button class="offer-btn">CLAIM OFFER</button>
+      </div>
+
+      <div class="offer-number">
+        <strong>20%</strong>
+        <span>OFF</span>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <!-- Feature: Contact | CSS: css/sections/contact.css + css/components/forms.css | JS: js/features/contact-form.js | HTML: components/contact.html -->
+    <section id="contact" class="contact section">
+      <div class="section-heading">
+        <p class="section-label">GET IN TOUCH</p>
+        <h2>
+          Let's make your
+          <span>day delicious.</span>
+        </h2>
+      </div>
+
+      <form id="contactForm">
+        <div class="input-row">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+        </div>
+
+        <input type="text" id="subject" placeholder="Subject" required />
+
+        <textarea
+          id="message"
+          rows="5"
+          placeholder="Your Message"
+          required
+        ></textarea>
+
+        <button type="submit" class="main-btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <!-- Feature: Footer | CSS: css/sections/footer.css | HTML partial: components/footer.html -->
+    <footer>
+      <div class="logo">EMBER<span>&</span>SPICE</div>
+      <p>Crafted with passion. Served with fire.</p>
+      <p class="copyright">© 2026 Ember & Spice</p>
+    </footer>
+
+    <!-- Modular JavaScript — single entry point (ES Modules) -->
+    <!-- See js/main.js → js/features/* per feature -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

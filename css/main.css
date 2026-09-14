@@ -1,0 +1,28 @@
+/* ======================================================
+   EMBER & SPICE — Main Entry
+   Location: css/main.css
+   Imports all modular stylesheets in correct order.
+   Only this file is linked from index.html.
+   ====================================================== */
+
+/* Base */
+@import url("./base.css");
+@import url("./layout.css");
+@import url("./animations.css");
+
+/* Components (shared) */
+@import url("./components/buttons.css");
+@import url("./components/cards.css");
+@import url("./components/forms.css");
+
+/* Feature Sections */
+@import url("./sections/navbar.css");
+@import url("./sections/hero.css");
+@import url("./sections/about.css");
+@import url("./sections/menu.css");
+@import url("./sections/offers.css");
+@import url("./sections/contact.css");
+@import url("./sections/footer.css");
+
+/* Responsive — must be last */
+@import url("./responsive.css");

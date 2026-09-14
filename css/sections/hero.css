@@ -1,0 +1,58 @@
+/* ======================================================
+   Feature — Hero
+   Location: css/sections/hero.css
+   ====================================================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 10% 70px;
+  background:
+    radial-gradient(circle at 80% 45%, rgba(255, 116, 56, 0.18), transparent 30%),
+    var(--bg-primary);
+}
+
+.hero-content {
+  max-width: 620px;
+  animation: slideLeft 1s ease;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 7vw, 90px);
+  line-height: 0.95;
+  margin-bottom: 25px;
+}
+
+.hero-text {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-food {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+}
+
+.food-circle {
+  width: 330px;
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 170px;
+  background: radial-gradient(circle, var(--primary-light), var(--primary) 45%, var(--primary-deep));
+  box-shadow: 0 0 80px rgba(255, 116, 56, 0.25);
+  animation: floatFood 4s ease-in-out infinite;
+}

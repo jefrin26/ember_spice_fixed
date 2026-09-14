@@ -1,0 +1,19 @@
+/* ======================================================
+   Feature — Footer
+   Location: css/sections/footer.css
+   ====================================================== */
+
+footer {
+  padding: 40px 10%;
+  text-align: center;
+  background: var(--bg-footer);
+}
+
+footer p {
+  color: #777;
+  margin: 10px;
+}
+
+.copyright {
+  font-size: 12px;
+}

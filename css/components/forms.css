@@ -1,0 +1,64 @@
+/* ======================================================
+   Components — Forms & Inputs
+   Location: css/components/forms.css
+   ====================================================== */
+
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 15px 18px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-input);
+  color: white;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ---------- Menu Controls ---------- */
+.menu-controls {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+}
+
+#searchBox {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: white;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+#searchBox:focus {
+  border-color: var(--primary);
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}

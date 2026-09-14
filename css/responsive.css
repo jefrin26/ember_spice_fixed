@@ -1,0 +1,98 @@
+/* ======================================================
+   Responsive — Breakpoints
+   Location: css/responsive.css
+   ====================================================== */
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-food {
+    width: 300px;
+    height: 300px;
+  }
+
+  .food-circle {
+    width: 250px;
+    height: 250px;
+    font-size: 120px;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about-image {
+    min-width: 280px;
+    width: 100%;
+  }
+
+  .offers {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    padding: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .nav-order {
+    padding: 8px 15px;
+  }
+
+  .hero {
+    padding-top: 170px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-points {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,87 @@
+/* ======================================================
+   Base — Reset, Variables & Typography
+   Location: css/base.css
+   ====================================================== */
+
+:root {
+  /* Colors */
+  --bg-primary: #11100e;
+  --bg-secondary: #181613;
+  --bg-card: #1a1815;
+  --bg-input: #1b1916;
+  --bg-footer: #0b0a09;
+  --primary: #ff7438;
+  --primary-light: #ff9a62;
+  --primary-deep: #6d2710;
+  --text-primary: #f7f1e8;
+  --text-secondary: #aaa29a;
+  --text-nav: #ddd5ca;
+  --text-dim: #888;
+  --text-muted: #999;
+  --border: #3b3833;
+  --border-card: #292621;
+  --border-input: #35312c;
+
+  /* Spacing & Radius */
+  --radius-pill: 30px;
+  --radius-card: 20px;
+  --radius-input: 10px;
+  --content-width: 1200px;
+}
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* ---------- Shared Typography ---------- */
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.small-title,
+.section-label {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+/* Accent color for highlighted words */
+.hero h1 span,
+.section-heading span,
+.about-content span,
+.offer-content span {
+  color: var(--primary);
+}

@@ -1,0 +1,19 @@
+/* ======================================================
+   DEPRECATED — Ember & Spice Legacy Stylesheet
+   Location: style.css (root)
+
+   This file is kept only for backward compatibility.
+   All styles have been split into modular files:
+
+     css/main.css        → entry point (imports all)
+     css/base.css        → reset, variables, typography
+     css/layout.css      → shared layouts
+     css/animations.css  → keyframes
+     css/components/*    → buttons, cards, forms
+     css/sections/*      → navbar, hero, about, menu, offers, contact, footer
+     css/responsive.css  → media queries
+
+   Please use <link rel="stylesheet" href="css/main.css"> instead.
+   ====================================================== */
+
+@import url("./css/main.css");
