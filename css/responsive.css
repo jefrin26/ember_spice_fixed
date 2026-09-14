@@ -4,10 +4,6 @@
    ====================================================== */
 
 @media (max-width: 900px) {
-  .nav-links {
-    gap: 15px;
-  }
-
   .hero {
     flex-direction: column;
     text-align: center;
@@ -53,11 +49,6 @@
 }
 
 @media (max-width: 700px) {
-  /* Top nav collapses on mobile — island handles nav */
-  .nav-links {
-    display: none;
-  }
-
   .navbar {
     height: 62px;
     padding: 0 16px;

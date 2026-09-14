@@ -25,35 +25,6 @@ header {
   gap: 20px;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 6px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--text-nav);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  transition: 0.25s ease;
-}
-
-.nav-links a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.nav-links a.is-active,
-.nav-links a[aria-current="page"] {
-  background: rgba(255, 116, 56, 0.14);
-  color: var(--primary);
-  border: 1px solid rgba(255, 116, 56, 0.22);
-}
-
 /* Logo as home link */
 .navbar .logo {
   text-decoration: none;

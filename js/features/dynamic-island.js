@@ -57,19 +57,7 @@ export function initDynamicIsland() {
     }
   });
 
-  // Top nav active (supports both hash and file links)
-  document.querySelectorAll(".nav-links a").forEach(function (a) {
-    const href = (a.getAttribute("href") || "").toLowerCase();
-    let shouldActivate = false;
-    if (page === "home" && (href.includes("index") || href === "#home" || href === "./" || href === "/")) shouldActivate = true;
-    if (page === "menu" && href.includes("menu")) shouldActivate = true;
-    if (page === "about" && href.includes("about")) shouldActivate = true;
-    if (page === "offers" && href.includes("offer")) shouldActivate = true;
-    if (page === "contact" && href.includes("contact")) shouldActivate = true;
-    a.classList.toggle("is-active", shouldActivate);
-    if (shouldActivate) a.setAttribute("aria-current", "page");
-    else a.removeAttribute("aria-current");
-  });
+  // Top nav removed — active state handled only for island
 
   // Add class to body for bottom padding
   document.body.classList.add("has-dynamic-island");
