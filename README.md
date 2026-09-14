@@ -229,3 +229,230 @@ P6: form validation novalidate constraint validation email regex Google Maps ifr
 ---
 
 © 2026 Ember & Spice • Built modular for competitions • Press `1-5` for shortcuts • `python3 run_site.py` to run
+
+---
+
+## File Connection Maps (Mermaid + Graphviz)
+
+> All diagrams are additive — no existing contents were modified. View on GitHub (Mermaid renders automatically) or copy DOT to https://dreampuf.github.io/GraphvizOnline/
+
+### 1) High-Level: HTML ↔ CSS ↔ JS (Mermaid)
+
+```mermaid
+flowchart TD
+    subgraph HTML["HTML Entry Points (5 Pages)"]
+        A[index.html:8<br/>links css/main.css<br/>loads js/main.js:200]
+        B[menu.html:8]
+        C[offers.html:8]
+        D[about.html:8]
+        E[contact.html:8]
+    end
+
+    subgraph CSS["CSS — css/main.css:9 Aggregator"]
+        M[css/main.css]
+        M --> BA[base.css:6<br/>:root vars --primary]
+        M --> L[layout.css]
+        M --> AN[animations.css]
+        M --> CB[components/buttons.css]
+        M --> CC[components/cards.css]
+        M --> CF[components/forms.css]
+        M --> SN[sections/navbar.css]
+        M --> SH[sections/hero.css]
+        M --> SM[sections/menu.css]
+        M --> SO[sections/offers.css]
+        M --> SA[sections/about.css]
+        M --> SC[sections/contact.css]
+        M --> SF[sections/footer.css]
+        M --> DI[components/dynamic-island.css]
+        M --> R[responsive.css LAST]
+        BA -. defines vars .-> CB & CC & SN & SH & SM
+    end
+
+    subgraph JS["JS — js/main.js:14 initApp()"]
+        JM[js/main.js<br/>DOMContentLoaded]
+        JM --> CL[utils/component-loader.js:15<br/>fetch components/*.html]
+        JM --> MF[features/menu-filter.js:7]
+        JM --> CA[features/cart.js:7]
+        JM --> OF[features/offer.js:7]
+        JM --> CF2[features/contact-form.js:8]
+        JM --> DIJ[features/dynamic-island.js:8]
+        CA --> CS[utils/cart-store.js:7<br/>localStorage es_cart_v1]
+        CA --> TO[utils/toast.js:23<br/>#toastStack]
+        OF --> TO
+        CF2 --> TO
+        DIJ --> CS
+        CS -. es:cart:update .-> DIJ
+    end
+
+    subgraph COMP["components/*.html (Injected)"]
+        CN[navbar.html]
+        CF0[footer.html]
+        CD[dynamic-island.html]
+        CH[hero.html]
+        CM[menu.html]
+        CO[offers.html]
+        CA2[about.html]
+        CC2[contact.html]
+        CL -. outerHTML replace .-> CN & CF0 & CD
+    end
+
+    A --> M
+    A --> JM
+    B --> M
+    B --> JM
+    C --> M
+    C --> JM
+    D --> M
+    D --> JM
+    E --> M
+    E --> JM
+
+    style M fill:#ff7438,stroke:#fff,color:#fff
+    style JM fill:#ff7438,stroke:#fff,color:#fff
+    style CS fill:#1a1815,stroke:#ff7438,color:#fff
+    style TO fill:#1a1815,stroke:#ff7438,color:#fff
+```
+
+### 2) JS Dependency Graph — Who Imports Whom (Mermaid)
+
+```mermaid
+flowchart LR
+    JM[js/main.js:7]
+
+    JM --> CL[component-loader.js]
+    JM --> MF[menu-filter.js]
+    JM --> CA[cart.js]
+    JM --> OF[offer.js]
+    JM --> CF2[contact-form.js]
+    JM --> DIJ[dynamic-island.js]
+
+    CA --> CS[cart-store.js<br/>getCart saveCart addToCart]
+    CA --> TO[toast.js<br/>showToast]
+    OF --> TO
+    CF2 --> TO
+    DIJ --> CS
+
+    CS --> LS[(localStorage<br/>es_cart_v1<br/>es_offer_claimed)]
+    TO --> DOM[DOM #toastStack<br/>aria-live polite]
+    DIJ --> BADGE[#navCartBadge + #islandCartBadge<br/>hidden toggle]
+
+    MF --> URL[(URL<br/>?category=&?search<br/>history.replaceState)]
+    MF --> GRID[#foodGrid + .food-card[data-category]]
+
+    style JM fill:#ff7438,color:#fff
+    style CS fill:#181613,color:#fff,stroke:#ff7438
+    style TO fill:#181613,color:#fff,stroke:#ff7438
+    style LS fill:#0b0a09,color:#ff9a62,stroke:#ff7438
+```
+
+### 3) CSS Import Order (Mermaid) — `css/main.css:9`
+
+```mermaid
+flowchart TB
+    ENTRY[css/main.css:8]
+    ENTRY --> B1[base.css<br/>:root vars + reset + typography]
+    B1 --> L1[layout.css]
+    L1 --> AN1[animations.css]
+    AN1 --> BTN[components/buttons.css]
+    BTN --> CAR[components/cards.css]
+    CAR --> FOR[components/forms.css]
+    FOR --> NAV[sections/navbar.css]
+    NAV --> HER[sections/hero.css]
+    HER --> ABT[sections/about.css]
+    ABT --> MEN[sections/menu.css]
+    MEN --> OFF[sections/offers.css]
+    OFF --> CON[sections/contact.css]
+    CON --> FOO[sections/footer.css]
+    FOO --> DIS[components/dynamic-island.css]
+    DIS --> RES[responsive.css — MUST BE LAST]
+    RES -. overrides all above at 768px/1024px .-> RES
+
+    style ENTRY fill:#ff7438,color:#fff
+    style RES fill:#22c55e,color:#fff,stroke:#111
+    style B1 fill:#181613,color:#ff9a62,stroke:#ff7438
+```
+
+### 4) Data Flow — Add to Cart → Badge Sync (Mermaid Sequence)
+
+```mermaid
+sequenceDiagram
+    participant U as User clicks .add-btn<br/>menu.html:59
+    participant CA as cart.js:18<br/>closest .food-card
+    participant CS as cart-store.js:28<br/>addToCart()
+    participant LS as localStorage<br/>es_cart_v1
+    participant EV as CustomEvent<br/>es:cart:update
+    participant DI as dynamic-island.js:21<br/>syncCartBadges()
+    participant TO as toast.js:23<br/>showToast()
+    participant DOM as DOM<br/>#navCartBadge + #islandCartBadge<br/>#toastStack
+
+    U->>CA: click +
+    CA->>CS: addToCart(name, price)
+    CS->>LS: JSON.stringify {count, items}
+    CS->>EV: window.dispatchEvent
+    EV->>DI: es:cart:update listener:66
+    DI->>DOM: badge hidden=false, text=count
+    CA->>TO: showToast("Firecracker Pizza added • ₹249")
+    TO->>DOM: append .toast → auto-remove 3200ms
+    Note over LS,DI: storage event also syncs across tabs
+```
+
+### 5) Graphviz DOT — Full File Map (copy to GraphvizOnline)
+
+```dot
+digraph EmberSpice {
+  rankdir=LR;
+  node [shape=box, style="rounded,filled", fillcolor="#1a1815", fontcolor="#f7f1e8", color="#3b3833"];
+  edge [color="#ff7438"];
+
+  // HTML entries
+  index [label="index.html:8\n(hero+featured)", fillcolor="#ff7438", fontcolor="white"];
+  menu  [label="menu.html:8\n(search+grid)", fillcolor="#ff7438", fontcolor="white"];
+  offers[label="offers.html:8", fillcolor="#ff7438", fontcolor="white"];
+  about [label="about.html:8", fillcolor="#ff7438", fontcolor="white"];
+  contact[label="contact.html:8", fillcolor="#ff7438", fontcolor="white"];
+
+  // CSS
+  cssmain [label="css/main.css:9\nAGGREGATOR", fillcolor="#ff9a62", fontcolor="black"];
+  base [label="base.css\n:root vars"];
+  responsive [label="responsive.css\nMUST LAST", fillcolor="#22c55e", fontcolor="white"];
+  components [label="components/*.css\nbuttons/cards/forms/dynamic-island"];
+  sections [label="sections/*.css\nnavbar/hero/menu/offers/about/contact/footer"];
+
+  // JS
+  jsmain [label="js/main.js:14\ninitApp()", fillcolor="#ff7438", fontcolor="white"];
+  loader [label="component-loader.js\nfetch()"];
+  menuf [label="menu-filter.js\n?category & ?search"];
+  cart [label="cart.js"];
+  offer [label="offer.js"];
+  cform [label="contact-form.js"];
+  island [label="dynamic-island.js"];
+  store [label="cart-store.js\nlocalStorage", fillcolor="#0b0a09", fontcolor="#ff9a62"];
+  toast [label="toast.js\n#toastStack", fillcolor="#0b0a09", fontcolor="#ff9a62"];
+
+  // Edges
+  index -> cssmain; menu -> cssmain; offers -> cssmain; about -> cssmain; contact -> cssmain;
+  index -> jsmain; menu -> jsmain; offers -> jsmain; about -> jsmain; contact -> jsmain;
+
+  cssmain -> base -> components -> sections -> responsive;
+
+  jsmain -> loader; jsmain -> menuf; jsmain -> cart; jsmain -> offer; jsmain -> cform; jsmain -> island;
+  cart -> store; cart -> toast; offer -> toast; cform -> toast; island -> store;
+  store -> island [label="es:cart:update", style=dashed, color="#888"];
+  toast -> index [style=dashed, color="#888", label="#toastStack"];
+}
+```
+
+### 6) Quick Legend — Which Person Owns Which Arrow
+
+| Arrow | Owner | Files |
+|---|---|---|
+| `HTML → css/main.css` | P1 | `css/base.css`, `layout.css`, `responsive.css`, `sections/navbar.css` |
+| `HTML → js/main.js` | P1 | `js/utils/component-loader.js` |
+| `js/main.js → menu-filter.js → #foodGrid` | P3 | `sections/menu.css`, `components/cards.css` |
+| `js/main.js → cart.js → cart-store.js → island` | P4 | `components/buttons.css`, `utils/*` |
+| `js/main.js → offer.js → toast.js` | P5 | `sections/offers.css` |
+| `js/main.js → contact-form.js → toast.js` | P6 | `sections/about.css`, `contact.css`, `components/forms.css` |
+  | `loader → components/*.html` | P1 | All `components/*.html` templates |
+
+> Tip: Open this file on GitHub to see Mermaid rendered. For DOT, paste into https://dreampuf.github.io/GraphvizOnline/ → Export SVG for your PPT.
+
